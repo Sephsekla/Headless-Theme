@@ -87,3 +87,25 @@ function so_screen_layout_dashboard() {
 }
 add_filter( 'get_user_option_screen_layout_dashboard', 'so_screen_layout_dashboard' );
 add_filter( 'get_user_option_screen_layout_post', 'so_screen_layout_dashboard' );
+
+
+
+add_action( 'admin_menu', 'headless_logout_url' );
+   function headless_logout_url() {
+   add_menu_page( 'sidebar_logout', 'Logout', 'read', 'my_slug', '', 'dashicons-warning', 100 );
+   }
+
+   add_action( 'admin_menu' , 'headless_logout_function' );
+   function headless_logout_function() {
+   global $menu;
+   $menu[1][2] = wp_logout_url();
+   }
+
+
+   add_action('after_setup_theme', 'remove_admin_bar',10000);
+
+   function remove_admin_bar() {
+   if (!current_user_can('administrator')) {
+     show_admin_bar(false);
+   }
+   }

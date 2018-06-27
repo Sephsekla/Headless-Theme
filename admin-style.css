@@ -4,5 +4,10 @@
 
 .postbox{border: none; box-shadow: none;}
 
-#post-preview, #view-post-btn{display: none;}</style>';
+#post-preview, #view-post-btn{display: none;}
+
+#adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap{
+background-color: #00589D
 }
+
+body{background-color: #ffffff;}

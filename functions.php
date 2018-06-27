@@ -13,3 +13,12 @@ function wpdocs_enqueue_custom_admin_style() {
         wp_enqueue_style( 'custom_wp_admin_css' );
 }
 add_action( 'admin_enqueue_scripts', 'wpdocs_enqueue_custom_admin_style',10000 );
+
+
+add_action('admin_head',function(){
+?>
+<style>
+#wpadminbar{display: none !important;}
+</style>
+<?php
+});

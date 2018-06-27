@@ -29,6 +29,8 @@ foreach($caps as $cap){
 $role->remove_cap( $cap );
 }
 
+$role->add_cap( 'manage_categories' );
+
 
 }
 
