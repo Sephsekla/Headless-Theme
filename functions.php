@@ -22,3 +22,20 @@ add_action('admin_head',function(){
 </style>
 <?php
 });
+
+
+add_action('publish_post','send_brief',2);
+
+
+function send_brief($ID,$post){
+
+  $attachments = array();
+
+$content ='
+<h1>New Email Job Added</h1>
+
+';
+
+wp_mail('developer@fluroltd.com','New Email Job Added',$content,"",$attachments);
+
+}

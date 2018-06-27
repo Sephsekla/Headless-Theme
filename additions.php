@@ -109,3 +109,34 @@ add_action( 'admin_menu', 'headless_logout_url' );
      show_admin_bar(false);
    }
    }
+
+
+   /**
+ * Add a widget to the dashboard.
+ *
+ * This function is hooked into the 'wp_dashboard_setup' action below.
+ */
+function example_add_dashboard_widgets() {
+
+	wp_add_dashboard_widget(
+                 'add',         // Widget slug.
+                 'Add a new email brief',         // Title.
+                 'addnew_widget_function' // Display function.
+        );
+}
+add_action( 'wp_dashboard_setup', 'example_add_dashboard_widgets' );
+
+/**
+ * Create the function to output the contents of our Dashboard Widget.
+ */
+function addnew_widget_function() {
+
+	// Display whatever it is you want to show.
+	echo '<a href="'.admin_url().'post-new.php">Click here to add a new email job</a>';
+}
+
+function change_publish_meta_box() {
+    remove_meta_box( 'submitdiv', 'post', 'side' );
+    add_meta_box( 'submitdiv', 'Submit', 'post_submit_meta_box', null, 'side', 'low' );
+}
+add_action( 'add_meta_boxes_post',  'change_publish_meta_box' );
