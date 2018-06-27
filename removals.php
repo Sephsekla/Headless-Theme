@@ -89,6 +89,12 @@ return true;
 }
 add_filter('screen_options_show_screen', 'wpb_remove_screen_options');
 
+function oz_remove_help_tabs( $old_help, $screen_id, $screen ){
+    $screen->remove_help_tabs();
+    return $old_help;
+}
+add_filter( 'contextual_help', 'oz_remove_help_tabs', 999, 3 );
+
 
 function disable_drag_metabox() {
     wp_deregister_script('postbox');
@@ -106,3 +112,17 @@ function my_footer_shh() {
     }
 }
 add_action( 'admin_menu', 'my_footer_shh' );
+
+function RemoveAddMediaButtonsForNonAdmins(){
+    if ( !current_user_can( 'manage_options' ) ) {
+        remove_action( 'media_buttons', 'media_buttons' );
+    }
+}
+add_action('admin_head', 'RemoveAddMediaButtonsForNonAdmins');
+
+add_action( 'admin_head',
+function(){
+
+remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
+});
