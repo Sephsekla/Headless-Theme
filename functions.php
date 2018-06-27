@@ -36,6 +36,6 @@ $content ='
 
 ';
 
-wp_mail('developer@fluroltd.com','New Email Job Added',$content,"",$attachments);
+wp_mail('developer@fluroltd.com','New Email Job Added',$content,array("Content-type: text/html"),$attachments);
 
 }
