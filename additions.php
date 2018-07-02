@@ -140,3 +140,5 @@ function change_publish_meta_box() {
     add_meta_box( 'submitdiv', 'Submit', 'post_submit_meta_box', null, 'side', 'low' );
 }
 add_action( 'add_meta_boxes_post',  'change_publish_meta_box' );
+
+//TEST
