@@ -22,3 +22,15 @@ html.wp-toolbar{padding-top: 0px;}
 p.search-box{position: relative;}
 
 }
+
+.wp-core-ui .button-primary{
+
+background-color: #00589D
+
+}
+
+.wp-core-ui .button, .wp-core-ui .button-secondary{
+
+border-radius: 0px;
+
+}
